@@ -23,7 +23,7 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index")
     
 //mongoose.connect("mongodb://localhost/rinchoa", { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect("mongodb+srv://Antonio:PalavraPasse1@cluster0-gh4j5.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://--USER--:--PASSWORD--@cluster0-gh4j5.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
