@@ -1,0 +1,31 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Editar <%= local.name %></h1>
+        <div style="width: 30%; margin: 30px auto;">
+            <form action="/locais/<%= local._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="local[name]" value="<%= local.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagem</label>
+					<input type="file" id="image" name="image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="local[description]" value="<%= local.description %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-default btn-block">Submeter!</button>
+                </div>
+            </form>
+			<div class="text-right">
+				<a href="/locais">Voltar para Locais</a>
+			</div>
+            
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
+

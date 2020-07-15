@@ -1,0 +1,58 @@
+<%- include("../partials/header") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Descobre mais...</p>
+            <div class="list-group">
+                <li class="list-group-item"><a href="/personalidades">Personalidades</a></li>
+                <li class="list-group-item"><a href="/locais">Locais</a></li>
+                <li class="list-group-item"><a href="/eventos">Eventos</a></li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= evento.image %>">
+                <div class="caption-full">
+					<h4 class="pull-right"><%= evento.date %></h4>
+                    <h4><a><%= evento.name %></a></h4>
+                    <p><%= evento.description %></p>
+                    <p>
+                        <em>Submetido por <%= evento.author.username %></em>
+                    </p>
+                    <% if(currentUser && currentUser._id.equals(evento.author.id)){ %>
+                       <a class="btn btn-warning" href="/eventos/<%= evento._id %>/edit">Editar</a>
+                       <form class="delete-form" action="/eventos/<%= evento.id %>?_method=DELETE" method="POST" >
+                           <button class="btn btn-danger">Apagar</button>
+                       </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/eventos/<%= evento._id %>/commentsEventos/newEvento" >Adicionar novo comentรกrio</a>
+                </div>
+                <hr>
+                <% evento.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <strong><%= comment.author.username %></strong> 
+                            <p>
+                                <%= comment.text %>
+                            </p>
+                                <% if(currentUser && currentUser._id.equals(comment.author.id)){ %>
+                                    <a class="btn btn-xs btn-warning" href="/eventos/<%= evento._id %>/commentsEventos/<%= comment._id %>/editEvento">Editar</a>
+                                        <form class="delete-form" action="/eventos/<%= evento._id %>/commentsEventos/<%= comment._id %>?_method=DELETE"  method="POST">
+                                            <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                                        </form>
+                                <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+	<a class="pull-right voltar" href="/eventos">Voltar para Eventos</a>
+</div>
+
+
+<%- include("../partials/footer") %>

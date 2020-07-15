@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rinchoa</title>
+		<link rel="icon" href="https://lh3.googleusercontent.com/proxy/a9uviZJAyIJczjvnv6zdgewtaML5_uKgo0NjowEMSD0QHBZmUZCFfPKe9oyly5qhNMsfurZ46LS9MgVzs1GOo6DdaP0dN_mrnh9E898dNNylRMln-e6gT-UEoJKo">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+    
+    <div id="landing-header">
+ 		<h1>Bem Vindo à Rinchoa!</h1>
+		
+		<div class="col-sm-12 text-center">
+			<a href="/personalidades" class="btn btn-md btn-success">Personalidades</a>
+			<a href="/locais" class="btn btn-md btn-success">Locais</a>
+			<a href="/eventos" class="btn btn-md btn-success">Eventos</a>
+		</div>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+<%- include("../views/partials/footer") %>
